@@ -5,10 +5,10 @@ let filteredData = [];
 
 // FETCH & JOIN DATA
 Promise.all([
-  fetch('./data/lessons_rows.json').then(r => r.json()),
+  fetch('./data/lesson_rows.json').then(r => r.json()),
   fetch('./data/lesson_schedule_rows.json').then(r => r.json()),
   fetch('./data/teachers_rows.json').then(r => r.json()),
-  fetch('./data/classes_rows.json').then(r => r.json())
+  fetch('./data/class_rows.json').then(r => r.json())
 ]).then(([lessons, schedules, teachers, classes]) => {
 
   const teacherById = Object.fromEntries(teachers.map(t => [t.id, t]));
