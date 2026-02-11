@@ -6,8 +6,8 @@ let filteredData = [];
 Promise.all([
   fetch('./data/teachers_rows.json').then(r=>r.json()),
   fetch('./data/lesson_schedule_rows.json').then(r=>r.json()),
-  fetch('./data/lessons_rows.json').then(r=>r.json()),
-  fetch('./data/classes_rows.json').then(r=>r.json())
+  fetch('./data/lesson_rows.json').then(r=>r.json()),
+  fetch('./data/class_rows.json').then(r=>r.json())
 ]).then(([teachers, schedules, lessons, classes]) => {
 
   const lessonById = Object.fromEntries(lessons.map(l => [l.id, l]));
@@ -77,3 +77,4 @@ document.getElementById('nextBtn').onclick = () => {
     renderTable();
   }
 };
+
