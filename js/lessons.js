@@ -13,13 +13,13 @@ Promise.all([
 
   const teacherById = Object.fromEntries(teachers.map(t => [t.id, t]));
   const classById   = Object.fromEntries(classes.map(c => [c.id, c]));
-  const lessonById  = Object.fromEntries(lessons.map(l => [l.id, l]));
+  const lessonById  = Object.fromEntries(lessons.map(l => [l.subject_id, l]));
 
   // JOIN DATA → FLAT TABLE
   originalData = [];
   lessons.forEach(l => {
     schedules
-      .filter(s => s.lessons_id === l.id)
+      .filter(s => s.teacher_id === l.id)
       .forEach(s => {
         originalData.push({
           lesson: l.subject,
